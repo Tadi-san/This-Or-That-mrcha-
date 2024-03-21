@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 
 export const GamePage = () => {
   const { subpage } = useParams();
@@ -42,13 +42,11 @@ export const GamePage = () => {
     }
   }
 
-  // if (next > 10) {
-  //   setRedierct(true)
-  // }
+  if (next > 9) {
+      return <Navigate to={'/category'} />
+  }
 
-  // if (redirect){
-  //   return <Navigate to={'/category'} />
-  // }
+  
   return (
     <div className='bg-[#212121] w-full min-h-screen flex flex-col gap-20 p-2 sm:gap-8 items-center justify-center'>
       {isLoading ? ( // Render loading state when isLoading is true

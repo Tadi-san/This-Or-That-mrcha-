@@ -17,6 +17,7 @@ async function main() {
   }
   app.use(
     cors({
+      // origin:'http://localhost:5173',
       origin:'https://this-or-that-mrcha-za9t.vercel.app',
       optionsSuccessStatus: 200,
       credentials: true,
@@ -30,6 +31,10 @@ async function main() {
       option2,
       category,} = req.body
                 try{
+                  const checker = await Option.find({option1:option1}) 
+                  console.log(checker)
+                  if (checker.length == 0){
+                    
                     const item = await Option.create({
                       option1:option1,
                       option2: option2,
@@ -38,6 +43,11 @@ async function main() {
                       option2_vote: 1,
                     })
                     res.json("submited")
+                  } 
+                  else{
+                    res.json("option is already submited")
+                  }
+                  
                 } 
                 catch(err){
                     res.json(err)
@@ -52,16 +62,21 @@ app.post('/contribute_category', async (req,res)=>{
   const {
     newCategory,
      discription,} = req.body
-              try{
+     try{
+      const checker = await Cat.find({discription:discription}) 
+      if (checker.length == 0){
                   const item = await Cat.create({
                     newCategory:newCategory,
                     discription:discription,
                   })
                   res.json("submited")
               } 
+      else{
+        res.json("category is already submited")
+      }
+            }
               catch(err){
                   res.json(err)
-
 }                  })
 
 app.post('/option1/:id', async (req, res) => {
