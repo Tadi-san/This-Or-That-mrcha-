@@ -17,7 +17,7 @@ async function main() {
   }
   app.use(
     cors({
-      origin:'http://localhost:5173',
+      origin:'https://this-or-that-mrcha-za9t.vercel.app/',
       optionsSuccessStatus: 200,
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE'],

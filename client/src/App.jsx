@@ -7,7 +7,7 @@ import axios from 'axios'
 import Contribute from './pages/contribute';
 function App() {
 
-  axios.defaults.baseURL = "http://localhost:5000"
+  axios.defaults.baseURL = "https://this-or-that-mrcha.vercel.app/"
   axios.defaults.withCredentials = true
   return (
     <BrowserRouter>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const GamePage = () => {
   const { subpage } = useParams();
@@ -42,19 +42,27 @@ export const GamePage = () => {
     }
   }
 
-  if (next > 10) {
-    return <Navigate to="/category" replace />;
-  }
+  // if (next > 10) {
+  //   setRedierct(true)
+  // }
 
+  // if (redirect){
+  //   return <Navigate to={'/category'} />
+  // }
   return (
     <div className='bg-[#212121] w-full min-h-screen flex flex-col gap-20 p-2 sm:gap-8 items-center justify-center'>
       {isLoading ? ( // Render loading state when isLoading is true
         <div>
           Loading...
-
+      {next > 9 && (
+              <Link to={"/category"} style={{backgroundImage: "linear-gradient(to right, #1f6dfd, #e63511)"}} className=" text-white p-2 px-12 rounded-full text-2xl font-semibold hover:border mb-7 hover:text-gray-200" >Go Back</Link>
+      )}
         </div>
       ) : (
     <div>
+      {next > 9 && (
+              <Link to={"/category"} style={{backgroundImage: "linear-gradient(to right, #1f6dfd, #e63511)"}} className=" text-white p-2 px-12 rounded-full text-2xl font-semibold hover:border mb-7 hover:text-gray-200" >Go Back</Link>
+      )}
       {data.length > 0 && 
   (<div className='bg-[#212121] w-full min-h-screen flex flex-col gap-16 p-2 sm:gap-8 items-center' >
     <div className='bg-[#1e1e1e] flex flex-col items-center mt-16 w-full relative'>
