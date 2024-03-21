@@ -44,6 +44,10 @@ async function main() {
 
 }                  })
 
+app.get('/test', (req,res) => {
+  res.json("Test")
+})
+
 app.post('/contribute_category', async (req,res)=>{
   const {
     newCategory,
