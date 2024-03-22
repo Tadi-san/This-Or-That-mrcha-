@@ -5,8 +5,14 @@ import Category from './pages/category';
 import { GamePage } from './pages/gamePage';
 import axios from 'axios'
 import Contribute from './pages/contribute';
-function App() {
+import { useEffect } from 'react';
 
+const tele = window.Telegram.WebApp
+
+function App() {
+  useEffect(()=>{
+    tele.ready
+  },[])
   // axios.defaults.baseURL = "http://localhost:5000"
   axios.defaults.baseURL = "https://this-or-that-mrcha.vercel.app/"
   axios.defaults.withCredentials = true

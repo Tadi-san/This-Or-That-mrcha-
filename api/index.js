@@ -7,6 +7,19 @@ const MongoClient = require('mongodb').MongoClient
 const Option = require('./model/option')
 const Cat = require('./model/cat')
 const port = 5000
+const Token = "5661492994:AAFzR7wUzKRACk868fATeoCV3doJzGshsFY"
+const webUrl = "https://this-or-that-mrcha-za9t.vercel.app"
+const { Telegraf } = require('telegraf')
+
+
+const bot = new Telegraf(Token)
+bot.start((ctx) => ctx.reply('Welcome babes', {
+  reply_markup:{keyboard:[[{text: "Tap Here to play the Game", web_app: {url:webUrl}}]]}
+}))
+
+
+bot.launch()
+
 app.use(express.json());
 main().catch(err => console.log(err));
 
