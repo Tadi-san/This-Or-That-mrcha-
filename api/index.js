@@ -4,6 +4,7 @@ const app = express()
 require('dotenv').config();
 const mongoose = require("mongoose")
 const MongoClient = require('mongodb').MongoClient
+const Option = require('./model/option')
 const Temp = require('./model/temp_option')
 const Cat = require('./model/cat')
 const port = 5000
