@@ -13,7 +13,7 @@ const { Telegraf } = require('telegraf')
 
 
 const bot = new Telegraf(Token)
-bot.start((ctx) => ctx.reply('Welcome player', {
+bot.start((ctx) => ctx.reply("Hey y'all! I have created a Telegram channel where I'll be talking about my nonsensical projects every day. It's a way to keep both myself and you guys motivated. and I've got zero members so far, so don't be shy to join in https://t.me/+9SDyETMRYL0zYTFk , enjoy the game", {
   reply_markup:{keyboard:[[{text: "Tap Here to play the Game", web_app: {url:webUrl}}]]}
 }))
 
