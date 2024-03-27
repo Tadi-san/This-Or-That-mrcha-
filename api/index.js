@@ -4,7 +4,7 @@ const app = express()
 require('dotenv').config();
 const mongoose = require("mongoose")
 const MongoClient = require('mongodb').MongoClient
-const Option = require('./model/option')
+const Temp = require('./model/temp_option')
 const Cat = require('./model/cat')
 const port = 5000
 const Token = "5661492994:AAFzR7wUzKRACk868fATeoCV3doJzGshsFY"
@@ -44,11 +44,11 @@ async function main() {
       option2,
       category,} = req.body
                 try{
-                  const checker = await Option.find({option1:option1}) 
+                  const checker = await Temp.find({option1:option1}) 
                   console.log(checker)
                   if (checker.length == 0){
                     
-                    const item = await Option.create({
+                    const item = await Temp.create({
                       option1:option1,
                       option2: option2,
                       category:category,
