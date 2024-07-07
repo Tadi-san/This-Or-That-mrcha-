@@ -21,7 +21,7 @@ export default {
             transform: "translate(-20px, 60px) scale(0.9)",
           },
           "100%": {
-            transform: "tranlate(0px, 0px) scale(1)",
+            transform: "tranlate(0px, 0px) scale(12)",
           },
         },
       },

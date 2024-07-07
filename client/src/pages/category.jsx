@@ -1,32 +1,47 @@
-import {Link} from "react-router-dom"
-
+import {Link, useLocation} from "react-router-dom"
+import imageFile from '../assets/efuye.png';
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
 const Category = () => {
-    const fake = [
-      { category: 'Football' },
-      { category: 'Meme' },
-      { category: 'Random' },
-      { category: 'Code' },
-      { category: 'Real' },
-      { category: 'Unrelated' },
-    ];
-  
+  const { width, height } = useWindowSize()
+  const location = useLocation();
+  const { score } = location.state || {};
     return (
-      <div className="bg-[#212121] w-full min-h-screen flex flex-col gap-8 items-center">
-        <h1 className=" text-3xl sm:text-5xl mt-5">Choose a category</h1>
-        <div className="w-fit grid grid-cols-2 gap-8 p-8 ">
-          {fake.map((cat) => (
-            <Link to={"/game/"+cat.category} className="bg-[#19191b] text-gray-400 shadow-black shadow w-32 h-32 sm:w-52 sm:h-52 rounded-lg flex flex-col justify-center items-center" key={cat.category}>
-              <span className=" text-2xl">
-              {cat.category}
-              </span>
-            </Link>
-          ))}
-        </div>
-          <h1 className=" text-3xl w-full text-center"> Contribute by adding options </h1>
-          <p className=" p-4 text-gray-400 text-center sm:w-1/2">Our website features an engaging "This or That" game where users can contribute their own questions based on predefined categories. After submission, our admin (me) reviews and approves the questions that meet our quality criteria. Approved questions are then published in the main game, providing an ever-expanding collection of user-generated content for our community to enjoy. Join us in contributing and playing the game to enhance the interactive experience!</p>
-          <Link to={"/contribute"} style={{backgroundImage: "linear-gradient(to right, #1f6dfd, #e63511)"}} className=" text-white p-2 px-12 rounded-full text-2xl font-semibold hover:border mb-7 hover:text-gray-200" >Contribute</Link>
-          
+      <div class=" min-h-screen bg-[#2d092e] min-w-full overflow-clip flex items-center justify-center px-2">
+      <div class="relative w-full max-w-lg ">
+        <div class="absolute top-0 -left-4 w-[600px] h-[600px] bg-red-400 rounded-full mix-blend-multiply filter blur-xl opacity-90 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-[600px] h-[600px] bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-90 animate-blob animation-delay-2000"></div>
       </div>
+      <div class="absolute space-y-4 bg-transparent w-full h-full flex pt-16 justify-center ">
+      <div className="relative flex justify-center gap-2 p-2 font-Silkscreen">
+      <h1 className="-mt-3 text-4xl text-red-400">This</h1>
+      <div className="relative">
+      <h1 className="mt-3">Or</h1>
+      <img src={imageFile} alt="Efuye" className=" absolute -top-5 left-12 w-18 h-14 "/>
+        </div>
+      <h1 className="mt-10 text-4xl text-blue-400">That</h1>
+      </div>
+      <div className="absolute w-full  h-fit top-[60%] flex flex-col gap-8 items-center
+       text-white  ">
+        <span className="absolute -top-20 text-2xl font-Silkscreen">Score: <span className={score>=5 ? "text-green-500":"text-red-500"}>{score}</span></span>
+        <Link to={''} className=" rounded-full
+       p-1 px-6 text-2xl bg-gray-200 opacity-50 text-black text-center">Leader boards</Link>
+      <Link to={'/game/Football'} className=" rounded-full
+       text-white bg-[#7f1783] p-1 px-6 text-2xl ">Play Again</Link>
+      </div>
+       <div>
+    
+  </div>
+  {score>=5 && (
+    <Confetti
+        width={width}
+        height={height}
+        duration={3000} // 3 seconds
+      />
+  )}
+      </div>
+      
+    </div>
     );
   };
   

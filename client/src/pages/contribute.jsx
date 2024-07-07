@@ -88,7 +88,7 @@ function Contribute() {
                 <textarea className="p-1 rounded-md" onChange={(ev)=>{setDiscription(ev.target.value)}} 
                 value={discription} required/>
             </div>
-            <button style={{backgroundImage: "linear-gradient(to right, #1f6dfd, #e63511)"}} className=" text-white p-2 px-12 rounded-full text-2xl font-semibold hover:border hover:text-white" >Submit</button>
+            <button style={{border: "3px linear-gradient(to right, #1f6dfd, #e63511) solid "}} className=" text-white p-2 px-12 rounded-full text-2xl font-semibold hover:text-white" >Submit</button>
         </form>
 
     </div>
