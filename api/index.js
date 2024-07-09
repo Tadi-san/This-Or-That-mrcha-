@@ -10,16 +10,20 @@ const Cat = require('./model/cat')
 const port = 5000
 const Token = "5661492994:AAFzR7wUzKRACk868fATeoCV3doJzGshsFY"
 const webUrl = "https://this-or-that-mrcha-za9t.vercel.app"
-const { Telegraf } = require('telegraf')
+const { Telegraf , Markup} = require('telegraf')
 
 
-const bot = new Telegraf(Token)
-bot.start((ctx) => ctx.reply("Hey y'all! I have created a Telegram channel where I'll be talking about my nonsensical projects every day. It's a way to keep both myself and you guys motivated. and I've got zero members so far, so don't be shy to join in https://t.me/+9SDyETMRYL0zYTFk ,tap the button to enjoy the game ", {
-  reply_markup:{keyboard:[[{text: "Tap Here to play the Game", web_app: {url:webUrl}}]]}
-}))
 
+const bot = new Telegraf(Token);
 
-bot.launch()
+bot.start((ctx) => {
+  ctx.reply("Hey y'all! I have created a Telegram channel where I'll be talking about my nonsensical projects every day. It's a way to keep both myself and you guys motivated. and I've got zero members so far, so don't be shy to join in https://t.me/+9SDyETMRYL0zYTFk", 
+  Markup.inlineKeyboard([
+    [Markup.button.webApp("Tap Here to play the Game", webUrl)]
+  ]));
+});
+
+bot.launch();
 
 app.use(express.json());
 main().catch(err => console.log(err));
