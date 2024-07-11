@@ -8,22 +8,22 @@ const Option = require('./model/option')
 const Temp = require('./model/temp_option')
 const Cat = require('./model/cat')
 const port = 5000
-const Token = "5661492994:AAFzR7wUzKRACk868fATeoCV3doJzGshsFY"
-const webUrl = "https://this-or-that-mrcha-za9t.vercel.app"
-const { Telegraf , Markup} = require('telegraf')
+// const Token = "5661492994:AAFzR7wUzKRACk868fATeoCV3doJzGshsFY"
+// const webUrl = "https://this-or-that-mrcha-za9t.vercel.app"
+// const { Telegraf , Markup} = require('telegraf')
 
 
 
-const bot = new Telegraf(Token);
+// const bot = new Telegraf(Token);
 
-bot.start((ctx) => {
-  ctx.reply("Hey y'all! I have created a Telegram channel where I'll be talking about my nonsensical projects every day. It's a way to keep both myself and you guys motivated. and I've got zero members so far, so don't be shy to join in https://t.me/+9SDyETMRYL0zYTFk", 
-  Markup.inlineKeyboard([
-    [Markup.button.webApp("Tap Here to play the Game", webUrl)]
-  ]));
-});
+// bot.start((ctx) => {
+//   ctx.reply("Hey y'all! I have created a Telegram channel where I'll be talking about my nonsensical projects every day. It's a way to keep both myself and you guys motivated. and I've got zero members so far, so don't be shy to join in https://t.me/+9SDyETMRYL0zYTFk", 
+//   Markup.inlineKeyboard([
+//     [Markup.button.webApp("Tap Here to play the Game", webUrl)]
+//   ]));
+// });
 
-bot.launch();
+// bot.launch();
 
 app.use(express.json());
 main().catch(err => console.log(err));
